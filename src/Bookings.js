@@ -4,8 +4,10 @@ import SearchResults from "./SearchResults.js";
 import FakeBookings from "./data/fakeBookings.json";
 
 const Bookings = () => {
+  var results = [];
   const search = searchVal => {
     console.info("TO DO!", searchVal);
+    results = FakeBookings;
   };
 
   console.log("Loaded FakeBookings from data/fakeBookings.json in Booking():");

@@ -35,9 +35,9 @@
   padding: 5px 0 20px 0;
 }
 
-/* tr {
+tr {
   color: #5b5757;
-} */
+}
 
 table {
   width: 90%;
@@ -130,7 +130,6 @@ a:hover {
 
   td {
     /* Behave  like a "row" */
-    border: none;
     border-bottom: 1px solid #eee;
     position: relative;
     padding-left: 50%;

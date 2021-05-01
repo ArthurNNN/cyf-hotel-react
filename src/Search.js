@@ -1,7 +1,7 @@
 import React from "react";
 import SearchButton from "./SearchButton";
 
-const Search = () => {
+const Search = props => {
   return (
     <div className="search">
       <div className="page-header">
@@ -18,7 +18,7 @@ const Search = () => {
                 className="form-control"
                 placeholder="Customer name"
               />
-              <SearchButton />
+              <SearchButton onSearch={props.onSearch} />
             </div>
           </form>
         </div>
