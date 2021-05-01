@@ -17,9 +17,9 @@ const App = () => {
     {
       name: "London",
       imgUrl:
-        "https://cdn.londonandpartners.com/visit/london-organisations/houses-of-parliament/63950-640x360-london-icons2-640.jpg",
+        "https://cdn.londonandpartners.com/-/media/images/london/visit/general-london/jl_201410_visit_london_1801-edit.jpg?mw=1030&hash=5925E97836C2219F839926B932015987707BB7E7",
       text:
-        "Find things to do in London, from iconic sightseeing spots and fun-filled days out to top restaurants, theatre and unmissable London events. If you’re not able to visit just yet, plan ahead to make the most of your next visit.",
+        "From iconic sightseeing spots and fun-filled days out to top restaurants, theatre and unmissable London events. If you’re not able to visit just yet, plan ahead to make the most of your next visit.",
       citySiteUrl: "https://visitlondon.com"
     },
     {
