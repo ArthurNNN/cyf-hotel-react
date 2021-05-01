@@ -8,7 +8,9 @@ const Bookings = () => {
     console.info("TO DO!", searchVal);
   };
 
-  console.log("FakeBookings from Booking.js:");
+  console.log(
+    "Loaded FakeBookings from ./data/fakeBookings.json in Booking():"
+  );
   console.log(FakeBookings);
 
   return (

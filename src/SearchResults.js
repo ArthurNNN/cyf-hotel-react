@@ -3,24 +3,23 @@ import moment from "moment";
 import "./App.css";
 
 const SearchResults = props => {
-  var booking = props.results;
-  var keys = Object.keys(props.results[0]);
-  console.log("Keys from props.results in SearchResults.js:");
-  console.log(keys);
   return (
     <table className="table">
       <thead>
         <tr>
-          {keys.map((item, index) => (
-            <th key={index} scope="col">
-              {item}
-            </th>
-          ))}
-          <th>number of nights</th>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Email</th>
+          <th scope="col">RoomId</th>
+          <th scope="col">CheckIn Date</th>
+          <th scope="col">CheckOut Date</th>
+          <th scope="col">Nights</th>
         </tr>
       </thead>
       <tbody>
-        {booking.map((item, index) => (
+        {props.results.map((item, index) => (
           <tr key={index}>
             <td>{item.id}</td>
             <td>{item.title}</td>
