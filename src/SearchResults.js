@@ -4,7 +4,7 @@ import "./App.css";
 
 const SearchResults = props => {
   return (
-    <table className="table">
+    <table>
       <thead>
         <tr>
           <th scope="col">#</th>

@@ -8,17 +8,17 @@ const Bookings = () => {
     console.info("TO DO!", searchVal);
   };
 
-  console.log(
-    "Loaded FakeBookings from ./data/fakeBookings.json in Booking():"
-  );
+  console.log("Loaded FakeBookings from data/fakeBookings.json in Booking():");
   console.log(FakeBookings);
 
   return (
-    <div className="App-content">
-      <div className="container">
-        <Search search={search} />
-        <SearchResults results={FakeBookings} />
+    <div>
+      <div className="App-content">
+        <div className="container">
+          <Search search={search} />
+        </div>
       </div>
+      <SearchResults results={FakeBookings} />
     </div>
   );
 };
