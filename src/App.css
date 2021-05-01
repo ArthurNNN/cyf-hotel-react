@@ -68,6 +68,7 @@ tr {
 .cards {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 a:hover {

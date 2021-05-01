@@ -25,7 +25,9 @@ const SearchResults = props => {
             <td>{item.title}</td>
             <td>{item.firstName}</td>
             <td>{item.surname}</td>
-            <td>{item.email}</td>
+            <td>
+              <a href={"mailto:" + item.email}>{item.email}</a>
+            </td>
             <td>{item.roomId}</td>
             <td>{item.checkInDate}</td>
             <td>{item.checkOutDate}</td>

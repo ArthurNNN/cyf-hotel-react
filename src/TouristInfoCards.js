@@ -11,9 +11,7 @@ const TouristInfoCards = props => {
             <div className="card-body">
               <h1>{item.name}</h1>
               <p>{item.text}</p>
-              <button href={item.citySiteUrl} className="btn btn-primary">
-                More information
-              </button>
+              <button className="btn btn-primary">More information</button>
             </div>
           </div>
         </a>

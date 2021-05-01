@@ -1,8 +1,7 @@
 import React from "react";
 import "./App.css";
 
-const BestPocemon = props => {
-  // var abilities = ['Anticipation', 'Adaptability', 'Run-Away'];
+const Footer = props => {
   return (
     <div>
       <ul className="footer">
@@ -14,4 +13,4 @@ const BestPocemon = props => {
   );
 };
 
-export default BestPocemon;
+export default Footer;
