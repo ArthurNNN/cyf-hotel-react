@@ -6,7 +6,7 @@ const Order = props => {
 
   const orderOne = () => {
     setOrders(orders + 1);
-    console.log(orders);
+    // console.log(orders);
   };
 
   return (
