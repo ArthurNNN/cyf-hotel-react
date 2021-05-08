@@ -9,22 +9,23 @@ const TableRow = props => {
       ? setColorStyle("highlighted-background-color")
       : setColorStyle("init-background-color");
   }
+  var row = props.item;
 
   return (
     <tr key={props.index} onClick={highlightRow} className={colorStyle}>
-      <td>{props.item.id}</td>
-      <td>{props.item.title}</td>
-      <td>{props.item.firstName}</td>
-      <td>{props.item.surname}</td>
+      <td>{row.id}</td>
+      <td>{row.title}</td>
+      <td>{row.firstName}</td>
+      <td>{row.surname}</td>
       <td>
-        <a href={"mailto:" + props.item.email}>{props.item.email}</a>
+        <a href={"mailto:" + row.email}>{row.email}</a>
       </td>
-      <td>{props.item.roomId}</td>
-      <td>{props.item.checkInDate}</td>
-      <td>{props.item.checkOutDate}</td>
+      <td>{row.roomId}</td>
+      <td>{row.checkInDate}</td>
+      <td>{row.checkOutDate}</td>
       <td>
-        {moment(Date.parse(props.item.checkOutDate)).diff(
-          Date.parse(props.item.checkInDate),
+        {moment(Date.parse(row.checkOutDate)).diff(
+          Date.parse(row.checkInDate),
           "days"
         )}
       </td>
