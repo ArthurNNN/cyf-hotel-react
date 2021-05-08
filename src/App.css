@@ -39,6 +39,14 @@ tr {
   color: #5b5757;
 }
 
+.highlighted-background-color {
+  background-color: rgba(0, 255, 0, 0.3) !important;
+}
+
+.init-background-color {
+  background-color: initial;
+}
+
 table {
   width: 90%;
   border-collapse: collapse;

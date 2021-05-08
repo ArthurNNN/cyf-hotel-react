@@ -4,7 +4,7 @@ import SearchResults from "./SearchResults.js";
 import FakeBookings from "./data/fakeBookings.json";
 
 const Bookings = () => {
-  var results = [];
+  let results = [];
   const search = searchVal => {
     console.info("TO DO!", searchVal);
     results = FakeBookings;
@@ -22,7 +22,7 @@ const Bookings = () => {
           <Search search={search} />
         </div>
       </div>
-      <SearchResults results={bookings} />
+      <SearchResults results={bookings} color="purple" />
     </div>
   );
 };

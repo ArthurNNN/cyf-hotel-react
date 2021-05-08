@@ -1,5 +1,5 @@
 import React from "react";
-import moment from "moment";
+import TableRow from "./TableRow";
 import "./App.css";
 
 const SearchResults = props => {
@@ -20,24 +20,7 @@ const SearchResults = props => {
       </thead>
       <tbody>
         {props.results.map((item, index) => (
-          <tr key={index}>
-            <td>{item.id}</td>
-            <td>{item.title}</td>
-            <td>{item.firstName}</td>
-            <td>{item.surname}</td>
-            <td>
-              <a href={"mailto:" + item.email}>{item.email}</a>
-            </td>
-            <td>{item.roomId}</td>
-            <td>{item.checkInDate}</td>
-            <td>{item.checkOutDate}</td>
-            <td>
-              {moment(Date.parse(item.checkOutDate)).diff(
-                Date.parse(item.checkInDate),
-                "days"
-              )}
-            </td>
-          </tr>
+          <TableRow item={item} key={index} />
         ))}
       </tbody>
     </table>
