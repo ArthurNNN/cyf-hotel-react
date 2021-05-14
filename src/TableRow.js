@@ -11,6 +11,15 @@ const TableRow = props => {
   }
   var row = props.item;
 
+  const sendData = () => {
+    props.parentCallback(props.item.id);
+  };
+
+  // const onClick = () => {
+  //   setId(props.item.id);
+  //   console.log('ID - ' + props.item.id);
+  // }
+
   return (
     <tr key={props.index} onClick={highlightRow} className={colorStyle}>
       <td>{row.id}</td>
@@ -28,6 +37,9 @@ const TableRow = props => {
           Date.parse(row.checkInDate),
           "days"
         )}
+      </td>
+      <td>
+        <button onClick={sendData}>Show profile</button>
       </td>
     </tr>
   );

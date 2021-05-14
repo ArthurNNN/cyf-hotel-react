@@ -9,8 +9,6 @@ const Search = props => {
   };
 
   const custemerName = event => {
-    // setSearchValue(document.getElementById("customerName").value);
-    // console.log(document.getElementById("customerName").value);
     console.log(event.target.value);
     setSearchValue(event.target.value);
   };
