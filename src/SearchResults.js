@@ -4,11 +4,12 @@ import CustomerProfile from "./CustomerProfile";
 import "./App.css";
 
 const SearchResults = props => {
-  const [profileText, setProfileText] = useState(null);
+  // const [profileText, setProfileText] = useState(null);
+  const [id, setId] = useState(null);
 
   const callbackFunction = id => {
-    setProfileText("Customer " + id + " Profile");
-    // console.log("ChildData: " + childData);
+    setId(id);
+    // setProfileText("Customer " + id + " Profile");
   };
 
   return (
@@ -38,7 +39,7 @@ const SearchResults = props => {
           ))}
         </tbody>
       </table>
-      <CustomerProfile profileText={profileText} />
+      <CustomerProfile id={id} />
     </div>
   );
 };

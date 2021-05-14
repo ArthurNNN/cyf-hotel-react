@@ -11,14 +11,9 @@ const TableRow = props => {
   }
   var row = props.item;
 
-  const sendData = () => {
+  const sendId = () => {
     props.parentCallback(props.item.id);
   };
-
-  // const onClick = () => {
-  //   setId(props.item.id);
-  //   console.log('ID - ' + props.item.id);
-  // }
 
   return (
     <tr key={props.index} onClick={highlightRow} className={colorStyle}>
@@ -39,7 +34,7 @@ const TableRow = props => {
         )}
       </td>
       <td>
-        <button onClick={sendData}>Show profile</button>
+        <button onClick={sendId}>Show profile</button>
       </td>
     </tr>
   );
