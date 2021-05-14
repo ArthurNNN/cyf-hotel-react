@@ -9,11 +9,10 @@ const Search = props => {
   };
 
   const custemerName = event => {
-    // console.log(event.target.value);
-    setSearchValue(document.getElementById("customerName").value);
-    console.log(document.getElementById("customerName").value);
-
-    // event => setSearchValue(event.target.value)
+    // setSearchValue(document.getElementById("customerName").value);
+    // console.log(document.getElementById("customerName").value);
+    console.log(event.target.value);
+    setSearchValue(event.target.value);
   };
 
   return (
@@ -23,7 +22,7 @@ const Search = props => {
       </div>
       <div className="row search-wrapper">
         <div className="col">
-          {/* <form className="form-group search-box"> */}
+          {/* <form className="form-group search-box" > */}
           <label htmlFor="customerName">Customer name</label>
           <div className="search-row">
             <input

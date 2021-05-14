@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./Search.js";
 import SearchResults from "./SearchResults.js";
 import FakeBookings from "./data/fakeBookings.json";
 
 const Bookings = () => {
-  const [bookings, setBookings] = useState(FakeBookings);
+  const [bookings, setBookings] = useState([]);
+
+  // const [pokemonData, setPokemonData] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://cyf-react.glitch.me`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setBookings(data);
+      });
+  }, []);
 
   const search = searchVal => {
     var filtredGuests = FakeBookings;
@@ -19,6 +30,7 @@ const Bookings = () => {
     }
     setBookings(filtredGuests);
   };
+
   return (
     <div>
       <div className="App-content">
