@@ -4,18 +4,30 @@ import SearchResults from "./SearchResults.js";
 import FakeBookings from "./data/fakeBookings.json";
 
 const Bookings = () => {
+  const [isError, setIsError] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState(null);
   const [bookings, setBookings] = useState([]);
-
   const [isDataLoaded, setIsDataLoaded] = useState(false);
 
+  const handleErrors = response => {
+    if (!response.ok || typeof response.ok === "undefined") {
+      setIsError(true);
+      // console.log(!response.ok);
+      throw Error(response.statusText);
+    }
+    return response;
+  };
+
   useEffect(() => {
-    fetch(`https://cyf-react.glitch.me/delayed`)
+    fetch(`https://cyf-react.glitch.me/error`)
+      .then(handleErrors)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setBookings(data);
         setIsDataLoaded(true);
-      });
+      })
+      .catch(error => console.log(error));
   }, []);
 
   const search = searchVal => {
@@ -31,27 +43,36 @@ const Bookings = () => {
     }
     setBookings(filtredGuests);
   };
-  if (isDataLoaded) {
+
+  if (isError) {
     return (
       <div>
-        <div className="App-content">
-          <div className="container">
-            <Search search={search} />
-          </div>
-        </div>
-        <SearchResults results={bookings} color="purple" />
+        <img className="spinner" src="/error.jpg" alt="error img" />
       </div>
     );
   } else {
-    return (
-      <div>
-        <img
-          className="spinner"
-          src="/fidget-spinner-loading.gif"
-          alt="Spinner pic"
-        />
-      </div>
-    );
+    if (isDataLoaded) {
+      return (
+        <div>
+          <div className="App-content">
+            <div className="container">
+              <Search search={search} />
+            </div>
+          </div>
+          <SearchResults results={bookings} color="purple" />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <img
+            className="spinner"
+            src="/fidget-spinner-loading.gif"
+            alt="Spinner pic"
+          />
+        </div>
+      );
+    }
   }
 };
 
