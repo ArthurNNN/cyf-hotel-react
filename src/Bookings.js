@@ -6,14 +6,15 @@ import FakeBookings from "./data/fakeBookings.json";
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
 
-  // const [pokemonData, setPokemonData] = useState(null);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
 
   useEffect(() => {
-    fetch(`https://cyf-react.glitch.me`)
+    fetch(`https://cyf-react.glitch.me/delayed`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setBookings(data);
+        setIsDataLoaded(true);
       });
   }, []);
 
@@ -30,17 +31,28 @@ const Bookings = () => {
     }
     setBookings(filtredGuests);
   };
-
-  return (
-    <div>
-      <div className="App-content">
-        <div className="container">
-          <Search search={search} />
+  if (isDataLoaded) {
+    return (
+      <div>
+        <div className="App-content">
+          <div className="container">
+            <Search search={search} />
+          </div>
         </div>
+        <SearchResults results={bookings} color="purple" />
       </div>
-      <SearchResults results={bookings} color="purple" />
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div>
+        <img
+          className="spinner"
+          src="/fidget-spinner-loading.gif"
+          alt="Spinner pic"
+        />
+      </div>
+    );
+  }
 };
 
 export default Bookings;
