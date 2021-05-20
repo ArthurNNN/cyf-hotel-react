@@ -74,6 +74,10 @@ th {
   text-align: left;
 }
 
+th input {
+  width: 90%;
+}
+
 .results {
   padding-top: 15px;
 }

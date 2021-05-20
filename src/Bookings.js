@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search.js";
 import SearchResults from "./SearchResults.js";
-import FakeBookings from "./data/fakeBookings.json";
 
 const Bookings = () => {
   const [isError, setIsError] = useState(false);
-  // const [errorMessage, setErrorMessage] = useState(null);
   const [bookings, setBookings] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
 
@@ -19,7 +17,7 @@ const Bookings = () => {
   };
 
   useEffect(() => {
-    fetch(`https://cyf-react.glitch.me/error`)
+    fetch(`https://cyf-react.glitch.me/`)
       .then(handleErrors)
       .then(res => res.json())
       .then(data => {
@@ -30,18 +28,22 @@ const Bookings = () => {
       .catch(error => console.log(error));
   }, []);
 
+  const addingBooking = newBooking => {
+    setBookings(bookings.concat(newBooking));
+  };
+
   const search = searchVal => {
-    var filtredGuests = FakeBookings;
-    if (searchVal === "") {
-      filtredGuests = FakeBookings;
-    } else {
-      filtredGuests = FakeBookings.filter(
-        guest =>
-          guest.firstName.toLowerCase().includes(searchVal.toLowerCase()) ||
-          guest.surname.toLowerCase().includes(searchVal.toLowerCase())
-      );
-    }
-    setBookings(filtredGuests);
+    fetch("https://cyf-react.glitch.me")
+      .then(res => res.json())
+      .then(bookings => {
+        const filteredGuests = bookings.filter(guest => {
+          return (
+            guest.firstName.toLowerCase().indexOf(searchVal.toLowerCase()) !==
+            -1
+          );
+        });
+        setBookings(filteredGuests);
+      });
   };
 
   if (isError) {
@@ -59,7 +61,11 @@ const Bookings = () => {
               <Search search={search} />
             </div>
           </div>
-          <SearchResults results={bookings} color="purple" />
+          <SearchResults
+            results={bookings}
+            onAddNewBooking={addingBooking}
+            color="purple"
+          />
         </div>
       );
     } else {

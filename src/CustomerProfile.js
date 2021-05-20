@@ -18,6 +18,7 @@ const CustomerProfile = props => {
   if (profileData) {
     return (
       <div>
+        {/* <h4>Customer profile</h4> */}
         <table>
           <thead>
             <tr>
@@ -37,7 +38,7 @@ const CustomerProfile = props => {
               <td>{profileData.firstName}</td>
               <td>{profileData.surname}</td>
               <td>{profileData.email}</td>
-              <td>{profileData.vip + ""}</td>
+              <td>{profileData.vip.toString()}</td>
               <td>{profileData.phoneNumber}</td>
             </tr>
           </tbody>

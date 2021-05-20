@@ -4,11 +4,11 @@ import "./App.css";
 
 const TableRow = props => {
   const [colorStyle, setColorStyle] = useState("init-background-color");
-  function highlightRow() {
+  const highlightRow = () => {
     colorStyle === "init-background-color"
       ? setColorStyle("highlighted-background-color")
       : setColorStyle("init-background-color");
-  }
+  };
   var row = props.item;
 
   const sendId = () => {
@@ -34,7 +34,9 @@ const TableRow = props => {
         )}
       </td>
       <td>
-        <button onClick={sendId}>Show profile</button>
+        <button className="btn btn-primary" onClick={sendId}>
+          Show profile
+        </button>
       </td>
     </tr>
   );
